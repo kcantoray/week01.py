@@ -54,11 +54,11 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
         if character not in "abcdefghijklmnopqrstuvwxyz":
             return False
 
-    for character in s3:
+        for character in s3:
         if character not in "abcdefghijklmnopqrstuvwxyz":
             return False
 
-        possible = []
+    possible = []
 
     for i in range(len(s1) + 1):
         row = []
