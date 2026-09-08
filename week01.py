@@ -59,7 +59,6 @@ if result:
 
             pairs.append([s_char, t_char])
             used.append(t_char)
-
     return result
 
 
