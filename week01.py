@@ -4,6 +4,17 @@ def are_isomorphic(s: str, t: str) -> bool:
     if len(s) != len(t):
         return False
 
+    if len(s) < 1 or len(s) > 500:
+        return False
+
+    for character in s:
+        if character not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            return False
+
+    for character in t:
+        if character not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            return False
+
     pairs = []
     used = []
 
@@ -30,6 +41,6 @@ def are_isomorphic(s: str, t: str) -> bool:
     return True
 
 
-print(are_isomorphic("egg", "add"))
-print(are_isomorphic("foo", "bar"))
-print(are_isomorphic("paper", "title"))
+print(are_isomorphic("", ""))
+print(are_isomorphic("abc", "12c"))
+print(are_isomorphic("abc", "ab!"))
