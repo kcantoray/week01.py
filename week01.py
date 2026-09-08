@@ -59,8 +59,8 @@ if result:
 
             pairs.append([s_char, t_char])
             used.append(t_char)
-            
-        return result
+    
+return result
 
 
 def is_interleaved(s1: str, s2: str, s3: str) -> bool:
