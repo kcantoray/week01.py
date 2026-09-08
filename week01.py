@@ -54,7 +54,7 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
         if character not in "abcdefghijklmnopqrstuvwxyz":
             return False
 
-        for character in s3:
+    for character in s3:
         if character not in "abcdefghijklmnopqrstuvwxyz":
             return False
 
@@ -78,6 +78,7 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
                     possible[i][j + 1] = True
 
     return possible[len(s1)][len(s2)]
+
 
 print(is_interleaved("aabcc", "dbbca", "aadbbcbcac"))
 print(is_interleaved("aabcc", "dbbca", "aadbbbaccc"))
