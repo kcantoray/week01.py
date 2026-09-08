@@ -16,18 +16,19 @@ def are_isomorphic(s: str, t: str) -> bool:
         for pair in pairs:
             if pair[0] == s_char:
                 found = True
+                if pair[1] != t_char:
+                    return False
 
-        if found:
-            if pair[1] != t_char:
-                return False
-        else:
+        if not found:
             for character in used:
                 if character == t_char:
                     return False
+
             pairs.append([s_char, t_char])
             used.append(t_char)
 
     return True
+
 
 print(are_isomorphic("egg", "add"))
 print(are_isomorphic("foo", "bar"))
