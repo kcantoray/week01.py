@@ -79,7 +79,37 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
 
     return possible[len(s1)][len(s2)]
 
+def contiguous_length(nums: list[int]) -> int:
+    """Find the longest contiguous subarray with equal 0s and 1s."""
 
-print(is_interleaved("aabcc", "dbbca", "aadbbcbcac"))
-print(is_interleaved("aabcc", "dbbca", "aadbbbaccc"))
-print(is_interleaved("", "", ""))
+    balance = 0
+    max_length = 0
+    first = []
+
+    for i in range(2 * len(nums) + 1):
+        first.append(-1)
+
+    offset = len(nums)
+    first[offset] = 0
+
+    for i in range(len(nums)):        
+        if nums[i] == 0:
+            balance -= 1
+        else:
+            balance += 1
+
+        position = balance + offset
+
+        if first[position] == -1:
+            first[position] = i + 1
+        else:
+            length = i + 1 - first[position]
+
+            if length > max_length:
+                max_length = length
+
+    return max_length
+
+print(contiguous_length([0, 1]))
+print(contiguous_length([0, 1, 0]))
+print(contiguous_length([0, 0, 1, 0, 0, 0, 1, 1]))
