@@ -35,7 +35,6 @@ def are_isomorphic(s: str, t: str) -> bool:
     for character in t:
         if character not in UPPERCASE_LETTERS + LOWERCASE_LETTERS:
             result = False
-
     if result:
         pairs = []
         used = []
@@ -52,7 +51,7 @@ def are_isomorphic(s: str, t: str) -> bool:
                     if pair[1] != t_char:
                         result = False
 
-            # A new character cannot map to a used character.
+            # A new character cannot map to a character already being used.
             if not found:
                 for character in used:
                     if character == t_char:
@@ -77,11 +76,11 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
     """
     result = True
 
-    # The length of s3 must equal the combined lengths.
+    # The length of s3 must equal the combined lengths of s1 and s2.
     if len(s1) + len(s2) != len(s3):
         result = False
 
-    # Check that all three strings contain lowercase letters.
+    # Check that all three strings contain only lowercase letters.
     for character in s1:
         if character not in LOWERCASE_LETTERS:
             result = False
@@ -104,31 +103,30 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
     if len(s3) > MAX_INTERLEAVED_RESULT_LENGTH:
         result = False
 
-    if result:
-        # possible stores possible positions in s1 and s2.
-        possible = []
+    # possible stores whether each pair of positions can form s3.
+    possible = []
 
-        for i in range(len(s1) + 1):
-            row = []
-            for j in range(len(s2) + 1):
-                row.append(False)
-            possible.append(row)
+    for i in range(len(s1) + 1):
+        row = []
+        for j in range(len(s2) + 1):
+            row.append(False)
+        possible.append(row)
 
-        possible[0][0] = True
+    possible[0][0] = True
 
-        # Check every possible position in s1 and s2.
-        for i in range(len(s1) + 1):
-            for j in range(len(s2) + 1):
-                if possible[i][j]:
-                    if i < len(s1) and s3[i + j] == s1[i]:
-                        possible[i + 1][j] = True
+    # Check every possible position in s1 and s2.
+    for i in range(len(s1) + 1):
+        for j in range(len(s2) + 1):
+            if possible[i][j]:
+                if i < len(s1) and s3[i + j] == s1[i]:
+                    possible[i + 1][j] = True
 
-                    if j < len(s2) and s3[i + j] == s2[j]:
-                        possible[i][j + 1] = True
+                if j < len(s2) and s3[i + j] == s2[j]:
+                    possible[i][j + 1] = True
 
-        # The final position tells us whether s3 can be formed.
-        if not possible[len(s1)][len(s2)]:
-            result = False
+    # The final position tells us whether the strings form s3.
+    if not possible[len(s1)][len(s2)]:
+        result = False
 
     return result
 
@@ -150,7 +148,7 @@ def contiguous_length(nums: list[int]) -> int:
     for i in range(2 * len(nums) + 1):
         first.append(-1)
 
-    # Offset allows negative balances to be list positions.
+    # Offset allows negative balances to be used as list positions.
     offset = len(nums)
     first[offset] = 0
 
@@ -167,10 +165,14 @@ def contiguous_length(nums: list[int]) -> int:
         if first[position] == -1:
             first[position] = i + 1
         else:
-            # A repeated balance gives a balanced subarray.
+            # The repeated balance gives a balanced subarray.
             length = i + 1 - first[position]
 
             if length > max_length:
                 max_length = length
 
     return max_length
+
+print(are_isomorphic("egg", "add"))
+print(are_isomorphic("foo", "bar"))
+print(are_isomorphic("paper", "title"))
