@@ -58,18 +58,26 @@ def is_interleaved(s1: str, s2: str, s3: str) -> bool:
         if character not in "abcdefghijklmnopqrstuvwxyz":
             return False
 
-    i = 0
-    j = 0
+        possible = []
 
-    for k in range(len(s3)):
-        if i < len(s1) and s3[k] == s1[i]:
-            i += 1
-        elif j < len(s2) and s3[k] == s2[j]:
-            j += 1
-        else:
-            return False
+    for i in range(len(s1) + 1):
+        row = []
+        for j in range(len(s2) + 1):
+            row.append(False)
+        possible.append(row)
 
-    return True
+    possible[0][0] = True
+
+    for i in range(len(s1) + 1):
+        for j in range(len(s2) + 1):
+            if possible[i][j]:
+                if i < len(s1) and s3[i + j] == s1[i]:
+                    possible[i + 1][j] = True
+
+                if j < len(s2) and s3[i + j] == s2[j]:
+                    possible[i][j + 1] = True
+
+    return possible[len(s1)][len(s2)]
 
 print(is_interleaved("aabcc", "dbbca", "aadbbcbcac"))
 print(is_interleaved("aabcc", "dbbca", "aadbbbaccc"))
