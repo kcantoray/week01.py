@@ -172,7 +172,3 @@ def contiguous_length(nums: list[int]) -> int:
                 max_length = length
 
     return max_length
-
-print(contiguous_length([0, 1]))
-print(contiguous_length([0, 1, 0]))
-print(contiguous_length([0, 0, 1, 0, 0, 0, 1, 1]))
