@@ -173,3 +173,6 @@ def contiguous_length(nums: list[int]) -> int:
 
     return max_length
 
+print(are_isomorphic("egg", "add"))
+print(are_isomorphic("foo", "bar"))
+print(are_isomorphic("paper", "title"))
