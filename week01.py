@@ -41,6 +41,5 @@ def are_isomorphic(s: str, t: str) -> bool:
     return True
 
 
-print(are_isomorphic("", ""))
-print(are_isomorphic("abc", "12c"))
-print(are_isomorphic("abc", "ab!"))
+print(are_isomorphic("a", "a"))
+print(are_isomorphic("ab", "aa"))
