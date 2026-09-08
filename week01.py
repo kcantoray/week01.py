@@ -173,6 +173,6 @@ def contiguous_length(nums: list[int]) -> int:
 
     return max_length
 
-print(is_interleaved("aabcc", "dbbca", "aadbbcbcac"))
-print(is_interleaved("aabcc", "dbbca", "aadbbbaccc"))
-print(is_interleaved("", "", ""))
+print(contiguous_length([0, 1]))
+print(contiguous_length([0, 1, 0]))
+print(contiguous_length([0, 0, 1, 0, 0, 0, 1, 1]))
