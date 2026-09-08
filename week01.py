@@ -40,6 +40,5 @@ def are_isomorphic(s: str, t: str) -> bool:
 
     return True
 
-
 print(are_isomorphic("a", "a"))
 print(are_isomorphic("ab", "aa"))
