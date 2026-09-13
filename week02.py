@@ -22,8 +22,8 @@ def add_unique_first_name(
     if character[0] == first_name:
       found = True
 
-if not found:
-  add(first_name, last_name, role, underlying)
+  if not found:
+      add(first_name, last_name, role, underlying)
 
 add_unique_first_name("Jim", "Byers", "Test", st_characters)
 add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
