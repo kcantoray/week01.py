@@ -48,7 +48,7 @@ def remove_first_name(
 ) -> list[str] | None:
   """Remove and return the first record with the given first name."""
 
-  found = Flase
+  found = False
   index = 0
   result = None
 
