@@ -26,21 +26,21 @@ def add_unique_first_name(
       add(first_name, last_name, role, underlying)
 
 def add_unique_last_name(
-  first_name: str,
-  last_name: str,
-  role: str,
-  underlying: list[list[str]]
+    first_name: str,
+    last_name: str,
+    role: str,
+    underlying: list[list[str]]
 ) -> None:
-   """Add a record if the last name is not already in the list."""
-  
-  found = False
+    """Add a record if the last name is not already in the list."""
 
-  for character in underlying:
-      if character[1] == last_name:
-          found = True
+    found = False
 
-  if not found:
-      add(first_name, last_name, role, underlying)
+    for character in underlying:
+        if character[1] == last_name:
+            found = True
+
+    if found == False:
+        add(first_name, last_name, role, underlying)
   
 
 st_characters = [
