@@ -62,6 +62,29 @@ def remove_first_name(
       result = underlying.pop(index)
 
   return result
+
+def remove_all_first_name(
+  first_name: str,
+  underlying: list[list[str]]
+) -> list[list[str]] | None:
+  """Remove and return all records with the given first name."""
+
+  remove = []
+  i = 0
+
+  while i < len(underlying):
+    if underlying[i][0] == first_name:
+      remove. append(underlying.pop(i))
+    else:
+      i += 1
+
+  if lean(removed) == 0:
+    result = None
+  else:
+    result = removed
+
+return result
+
 st_characters = [
     ["Jim", "Hopper", "Chief of Police"],
     ["Eleven", "", "Psychokinetic Overachiever"],
