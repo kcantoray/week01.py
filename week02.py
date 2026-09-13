@@ -69,12 +69,12 @@ def remove_all_first_name(
 ) -> list[list[str]] | None:
   """Remove and return all records with the given first name."""
 
-  remove = []
+  removed = []
   i = 0
 
   while i < len(underlying):
     if underlying[i][0] == first_name:
-      remove. append(underlying.pop(i))
+      removed.append(underlying.pop(i))
     else:
       i += 1
 
