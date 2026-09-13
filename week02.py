@@ -53,7 +53,7 @@ def remove_first_name(
   result = None
 
   for i in range(len(underlying)):
-    if underlying[1][0] == first_name:
+    if underlying[i][0] == first_name:
         if found == False:
             found = True
             index = i
