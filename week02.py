@@ -45,7 +45,7 @@ def add_unique_last_name(
 def remove_first_name(
   first_name: str,
   underlying: list[list[str]]
-) -> list[str] | None:
+) -> str | None:
   """Remove and return the first record with the given first name."""
 
   found = False
@@ -84,28 +84,3 @@ def remove_all_first_name(
     result = removed
 
   return result
-
-st_characters = [
-    ["Jim", "Hopper", "Chief of Police"],
-    ["Eleven", "", "Psychokinetic Overachiever"],
-    ["Dustin", "Henderson", "Science Enthusiast"]
-]
-
-add("Yuri", "Ismaylov", "Smuggler", st_characters)
-
-add_unique_first_name("Jim", "Byers", "Test", st_characters)
-add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
-add_unique_last_name("Will", "Hopper", "Test", st_characters)
-add_unique_last_name("Mike", "Wheeler", "Friend", st_characters)
-add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
-
-removed = remove_first_name("Lucas", st_characters)
-print(removed)
-print(st_characters)
-add("Steve", "Harrington", "Babysitter", st_characters)
-add("Steve", "Unknown", "Test", st_characters)
-
-removed = remove_all_first_name("Steve", st_characters)
-
-print(removed)
-print(st_characters)
