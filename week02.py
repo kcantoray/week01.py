@@ -78,7 +78,7 @@ def remove_all_first_name(
     else:
       i += 1
 
-  if lean(removed) == 0:
+  if len(removed) == 0:
     result = None
   else:
     result = removed
