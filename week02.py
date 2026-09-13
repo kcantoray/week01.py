@@ -74,6 +74,8 @@ add_unique_first_name("Jim", "Byers", "Test", st_characters)
 add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
 add_unique_last_name("Will", "Hopper", "Test", st_characters)
 add_unique_last_name("Mike", "Wheeler", "Friend", st_characters)
+add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
+
 removed = remove_first_name("Lucas", st_characters)
 print(removed)
 print(st_characters)
