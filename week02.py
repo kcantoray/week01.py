@@ -77,7 +77,3 @@ add_unique_last_name("Mike", "Wheeler", "Friend", st_characters)
 removed = remove_first_name("Lucas", st_characters)
 print(removed)
 print(st_characters)
-
-print(st_characters)
-
-print(st_characters)
