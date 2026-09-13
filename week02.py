@@ -32,15 +32,15 @@ def add_unique_last_name(
   underlying: list[list[str]]
 ) -> None:
    """Add a record if the last name is not already in the list."""
+  
+  found = False
 
-found = False
+  for character in underlying:
+      if character[1] == last_name:
+          found = True
 
-for character in underlying:
-  if character[1] == last_name:
-    found = True
-
-if not found:
-    add(first_name, last_name, role, underlying)
+  if not found:
+      add(first_name, last_name, role, underlying)
   
 
 st_characters = [
