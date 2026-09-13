@@ -83,7 +83,7 @@ def remove_all_first_name(
   else:
     result = removed
 
-return result
+  return result
 
 st_characters = [
     ["Jim", "Hopper", "Chief of Police"],
