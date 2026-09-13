@@ -102,3 +102,10 @@ add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
 removed = remove_first_name("Lucas", st_characters)
 print(removed)
 print(st_characters)
+add("Steve", "Harrington", "Babysitter", st_characters)
+add("Steve", "Unknown", "Test", st_characters)
+
+removed = remove_all_first_name("Steve", st_characters)
+
+print(removed)
+print(st_characters)
