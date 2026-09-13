@@ -25,8 +25,15 @@ def add_unique_first_name(
   if not found:
       add(first_name, last_name, role, underlying)
 
+st_characters = [
+    ["Jim", "Hopper", "Chief of Police"],
+    ["Eleven", "", "Psychokinetic Overachiever"],
+    ["Dustin", "Henderson", "Science Enthusiast"]
+]
+
+add("Yuri", "Ismaylov", "Smuggler", st_characters)
+
 add_unique_first_name("Jim", "Byers", "Test", st_characters)
 add_unique_first_name("Lucas", "Sinclair", "Friend", st_characters)
 
 print(st_characters)
-
