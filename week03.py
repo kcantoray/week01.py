@@ -103,7 +103,7 @@ class RSAEncryptor:
     PHI = (P - 1) * (Q - 1)
 
     @classmethod
-    def encrypt(cls, character: str) -> ModulatorInteger:
+    def encrypt(cls, character: str) -> ModularInteger:
         """Encrypt one character and return its modular integer."""
         if len(character) != 1:
             raise ValueError("Character must be exactly one character.")
