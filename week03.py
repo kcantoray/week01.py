@@ -93,6 +93,49 @@ class ModularInteger:
 
 
 
+# Test creating and normalizing modular integers
+a = ModularInteger(17, 12)
+b = ModularInteger(-7, 12)
+
+print(a.value)
+print(b.value)
+print(a.modulus)
+print(b.modulus)
+
+# Test string representation
+print(a)
+
+# Test equality
+c = ModularInteger(5, 12)
+d = ModularInteger(5, 7)
+
+print(a == c)
+print(a == d)
+print(a == 5)
+
+# Test addition
+e = ModularInteger(10, 12)
+f = ModularInteger(7, 12)
+
+print(e + f)
+
+# Test multiplication
+print(e * f)
+
+# Test exponentiation
+print(e ** 3)
+
+# Test clock constructor
+morning = ModularInteger.from_clock(9)
+afternoon = ModularInteger.from_clock(15)
+
+print(morning)
+print(afternoon)
+
+# Test coprime values
+print(ModularInteger.are_coprime(8, 15))
+print(ModularInteger.are_coprime(12, 18))
+
 
 
 
