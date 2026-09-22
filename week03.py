@@ -92,77 +92,60 @@ class ModularInteger:
         return result
 
 
+class RSAEncryptor:
+    """Provide RSA encryption and decryption using fixed educational values."""
 
-# Test creating and normalizing modular integers
-a = ModularInteger(17, 12)
-b = ModularInteger(-7, 12)
+    P = 61
+    Q = 53
+    E = 17
+    D = 2753
+    N = P * Q
+    PHI = (P - 1) * (Q - 1)
 
-print(a.value)
-print(b.value)
-print(a.modulus)
-print(b.modulus)
+    @classmethod
+    def encrypt(cls, character: str) -> ModulatorInteger:
+        """Encrypt one character and return its modular integer."""
+        if len(character) != 1:
+            raise ValueError("Character must be exactly one character.")
 
-# Test string representation
-print(a)
+        value = ord(character)
 
-# Test equality
-c = ModularInteger(5, 12)
-d = ModularInteger(5, 7)
+        if value >= cls.N:
+            raise ValueError("Character value must be less than N.")
 
-print(a == c)
-print(a == d)
-print(a == 5)
+        result = ModularInteger(value, cls.N) ** cls.E
 
-# Test addition
-e = ModularInteger(10, 12)
-f = ModularInteger(7, 12)
+        return result
 
-print(e + f)
+    @classmethod
+    def decrypt(cls, encrypted: ModularInteger) -> str:
+        """Decrypt a modular integer and return the original character."""
+        if encrypted.modulus != cls.N:
+            raise ValueError("Encrypted value has the wrong modulus.")
 
-# Test multiplication
-print(e * f)
+        value = encrypted ** cls.D
+        result = chr(value.value)
 
-# Test exponentiation
-print(e ** 3)
-
-# Test clock constructor
-morning = ModularInteger.from_clock(9)
-afternoon = ModularInteger.from_clock(15)
-
-print(morning)
-print(afternoon)
-
-# Test coprime values
-print(ModularInteger.are_coprime(8, 15))
-print(ModularInteger.are_coprime(12, 18))
+        return result
 
 
+# Test RSA values
+print(ModularInteger.are_coprime(RSAEncryptor.E, RSAEncryptor.PHI))
+print((RSAEncryptor.E * RSAEncryptor.D) % RSAEncryptor.PHI)
 
+# Test RSA encryption and decryption with three letters
+letters = ["A", "B", "C"]
 
+for letter in letters:
+    original_value = ord(letter)
+    encrypted = RSAEncryptor.encrypt(letter)
+    recovered = RSAEncryptor.decrypt(encrypted)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print("Original:", letter)
+    print("Original value:", original_value)
+    print("Encrypted:", encrypted.value)
+    print("Recovered:", recovered)
+    print("Match:", recovered == letter)
 
 
 
