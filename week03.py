@@ -129,7 +129,34 @@ class RSAEncryptor:
         return result
 
 
-# Test RSA values
+# Test ModularInteger normalization and properties
+a = ModularInteger(17, 12)
+print(a.value)
+print(a.modulus)
+
+# Test string representation
+print(a)
+
+# equality testing
+b = ModularInteger(5, 12)
+print(a == b)
+print(a == 5)
+
+# Test addition
+c = ModularInteger(10, 12)
+d = ModularInteger(7, 12)
+print(c + d)
+
+# Test multiplication
+print(c * d)
+
+# Test exponentiation
+print(c ** 3)
+
+# Clock test constructor
+print(ModularInteger.from_clock(15))
+
+# RSA test values
 print(ModularInteger.are_coprime(RSAEncryptor.E, RSAEncryptor.PHI))
 print((RSAEncryptor.E * RSAEncryptor.D) % RSAEncryptor.PHI)
 
@@ -146,10 +173,6 @@ for letter in letters:
     print("Encrypted:", encrypted.value)
     print("Recovered:", recovered)
     print("Match:", recovered == letter)
-
-
-
-
 
 
 
