@@ -67,8 +67,8 @@ class ModularInteger:
 
     def __pow__(self, exponent: int) -> "ModularInteger":
         """Return this modular integer raised to a nonnegative power."""
-        if exponent < 0:
-            raise ValueError("Exponent must be nonnegative.")
+        if not isinstance(exponent, int) or exponent < 0:
+            raise ValueError("Exponent must be a nonnegative integer.")
 
         result = ModularInteger(
             self.__value ** exponent,
